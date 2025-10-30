@@ -9,6 +9,7 @@ export async function createTableDB() {
       username VARCHAR(100) NOT NULL UNIQUE,
       password VARCHAR(100) NOT NULL,
       name VARCHAR(100) DEFAULT '',
+      role ENUM('admin', 'user') DEFAULT 'user',
       is_deleted TINYINT(1) DEFAULT 0
     ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;`);
     await pool.query(`CREATE TABLE IF NOT EXISTS history (
@@ -39,7 +40,7 @@ export const createDefaultUser = async () => {
 
     const hashPassword = await getHashPassword({ password: DEFAULT_USER_CREDENTIALS.PASSWORD });
     await pool.query(
-      `INSERT INTO users(username, password, name) VALUES (?, ?, ?)`,
+      `INSERT INTO users(username, password, name, role) VALUES (?, ?, ?, 'admin')`,
       [DEFAULT_USER_CREDENTIALS.USERNAME, hashPassword, DEFAULT_USER_CREDENTIALS.NAME]
     );
     console.log("Admin Created");

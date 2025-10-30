@@ -9,6 +9,6 @@ if (!JWT_SCERET) {
 }
 
 export const generateToken = async ({ userid }) => {
-  const token = jwt.sign({ userid: userid }, JWT_SCERET)
+  const token = jwt.sign({ userId: userid }, JWT_SCERET)
   return token;
 }

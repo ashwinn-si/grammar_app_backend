@@ -7,7 +7,7 @@ export const loginValidator = [
   validator
 ];
 
-export const addUserValidator = [
+export const createUserValidator = [
   body("username").isString().isLength({ min: 1 }).withMessage("Username is required"),
   body("password").isString().isLength({ min: 1 }).withMessage("Password is required"),
   body("name").isString().isLength({ min: 1 }).withMessage("Name is required"),
