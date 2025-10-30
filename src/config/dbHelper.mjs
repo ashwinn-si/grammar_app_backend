@@ -15,7 +15,7 @@ export async function createTableDB() {
     await pool.query(`CREATE TABLE IF NOT EXISTS history (
       id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
       user_id INT NOT NULL,
-      type ENUM('general', 'whatsapp', 'email') NOT NULL DEFAULT 'general',
+      type ENUM('general', 'whatsapp', 'email', 'love_rizz') NOT NULL DEFAULT 'general',
       input TEXT,
       output TEXT,
       created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,

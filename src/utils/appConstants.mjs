@@ -20,3 +20,10 @@ export const STATUS_CODE = {
   SERVICE_UNAVAILABLE: 503,
   NOT_ALLOWED: 403,
 }
+
+export const INPUT_TYPES = {
+  EMAIL: "email",
+  GENERAL: "general",
+  WHATSAPP: "whatsapp",
+  LOVE_RIZZ: "love_rizz"
+}
